@@ -6,16 +6,18 @@
 }
 
 .cat-sleeping-sprite {
-  width: 64px;       /* Width of a single frame */
-  height: 64px;      /* Height of a single frame */
+  /* Each frame is exactly 64x64 */
+  width: 64px;       
+  height: 64px;      
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: 0px 0px;
   
-  /* - 1s: Duration of the loop 
-     - steps(4): Number of total frames in the row
-     - infinite: Loops forever
-  */
-  animation: sleepAnimation 1.2s steps(4) infinite;
+  /* Scales it up cleanly without blurriness */
+  transform: scale(2);
+  image-rendering: pixelated; 
+
+  /* Cycles through the 7 vertical frames */
+  animation: sleepAnimation 1.4s steps(7) infinite;
 }
 
 @keyframes sleepAnimation {
@@ -23,8 +25,7 @@
     background-position: 0px 0px;
   }
   to {
-    /* Moves the background left by the total width of the sprite sheet */
-    /* 4 frames * 64px = 256px */
-    background-position: -256px 0px; 
+    /* Shifting vertically on the Y-axis: 7 frames * 64px = 448px */
+    background-position: 0px -448px; 
   }
 }
