@@ -66,7 +66,7 @@ self.addEventListener('fetch', (event) => {
 
 // Listener for simulated push events
 self.addEventListener('push', (event) => {
-  let title = 'Reminder Noptieră';
+  let title = 'Reminder Pickl';
   let body = 'Este timpul să îți iei medicația setată.';
   let icon = '/icon-192.png';
 
